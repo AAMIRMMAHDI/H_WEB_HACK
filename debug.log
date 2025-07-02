@@ -1,0 +1,1898 @@
+Watching for file changes with StatReloader
+Not Found: /favicon.ico
+Running PyInstaller with command: pyinstaller --onefile --noconsole --distpath C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\APP --specpath C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\APP --name WindowsRuntimeUpdate --icon=C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\icon.ico C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\APP\client.py
+PyInstaller output: 
+PyInstaller stderr: 612 INFO: PyInstaller: 5.13.2
+612 INFO: Python: 3.12.3
+637 INFO: Platform: Windows-11-10.0.26100-SP0
+638 INFO: wrote C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\APP\WindowsRuntimeUpdate.spec
+640 INFO: Extending PYTHONPATH with paths
+['C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\APP']
+1120 INFO: checking Analysis
+1120 INFO: Building Analysis because Analysis-00.toc is non existent
+1120 INFO: Initializing module dependency graph...
+1121 INFO: Caching module graph hooks...
+1179 INFO: Analyzing base_library.zip ...
+2869 INFO: Loading module hook 'hook-encodings.py' from 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'...
+4040 INFO: Loading module hook 'hook-pickle.py' from 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'...
+4706 INFO: Loading module hook 'hook-heapq.py' from 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'...
+5159 INFO: Caching module dependency graph...
+5253 INFO: running Analysis Analysis-00.toc
+5263 INFO: Adding Microsoft.Windows.Common-Controls to dependent assemblies of final executable
+  required by C:\Users\amirm\AppData\Local\Programs\Python\Python312\python.exe
+5265 WARNING: lib not found: api-ms-win-crt-heap-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python.exe
+5269 WARNING: lib not found: api-ms-win-crt-stdio-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python.exe
+5270 WARNING: lib not found: api-ms-win-crt-math-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python.exe
+5271 WARNING: lib not found: api-ms-win-crt-locale-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python.exe
+5272 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python.exe
+5274 WARNING: lib not found: api-ms-win-crt-heap-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\VCRUNTIME140.dll
+5276 WARNING: lib not found: api-ms-win-crt-string-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\VCRUNTIME140.dll
+5277 WARNING: lib not found: api-ms-win-crt-convert-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\VCRUNTIME140.dll
+5278 WARNING: lib not found: api-ms-win-crt-stdio-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\VCRUNTIME140.dll
+5280 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\VCRUNTIME140.dll
+5287 WARNING: lib not found: api-ms-win-crt-time-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+5288 WARNING: lib not found: api-ms-win-crt-conio-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+5289 WARNING: lib not found: api-ms-win-crt-process-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+5290 WARNING: lib not found: api-ms-win-crt-math-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+5290 WARNING: lib not found: api-ms-win-crt-heap-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+5291 WARNING: lib not found: api-ms-win-crt-filesystem-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+5292 WARNING: lib not found: api-ms-win-crt-locale-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+5293 WARNING: lib not found: api-ms-win-core-path-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+5294 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+5296 WARNING: lib not found: api-ms-win-crt-string-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+5297 WARNING: lib not found: api-ms-win-crt-stdio-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+5298 WARNING: lib not found: api-ms-win-crt-environment-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+5300 WARNING: lib not found: api-ms-win-crt-convert-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+5302 INFO: Analyzing C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\APP\client.py
+5367 INFO: Loading module hook 'hook-urllib3.py' from 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'...
+5609 INFO: Loading module hook 'hook-platform.py' from 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'...
+5932 INFO: Loading module hook 'hook-multiprocessing.util.py' from 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'...
+6073 INFO: Loading module hook 'hook-xml.py' from 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'...
+7006 INFO: Loading module hook 'hook-charset_normalizer.py' from 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'...
+7197 INFO: Loading module hook 'hook-cryptography.py' from 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'...
+8017 WARNING: hook-cryptography: full support for cryptography + OpenSSL >= 3.0.0 requires PyInstaller >= 6.0
+8017 INFO: hook-cryptography: cryptography does not seem to be using dynamically linked OpenSSL.
+8585 INFO: Loading module hook 'hook-bcrypt.py' from 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'...
+8671 INFO: Loading module hook 'hook-certifi.py' from 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'...
+8769 INFO: Processing module hooks...
+8837 INFO: Looking for ctypes DLLs
+8861 INFO: Analyzing run-time hooks ...
+8863 INFO: Including run-time hook 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_inspect.py'
+8866 INFO: Including run-time hook 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_pkgutil.py'
+8868 INFO: Including run-time hook 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_multiprocessing.py'
+8871 INFO: Including run-time hook 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\rthooks\\pyi_rth_cryptography_openssl.py'
+8876 INFO: Looking for dynamic libraries
+669 INFO: Extra DLL search directories (AddDllDirectory): []
+669 INFO: Extra DLL search directories (PATH): ['C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Scripts', 'C:\\Program Files\\Common Files\\Oracle\\Java\\javapath', 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\java8path', 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath', 'C:\\Program Files (x86)\\VMware\\VMware Workstation\\bin\\', 'C:\\ProgramData\\Oracle\\Java\\javapath', 'C:\\WINDOWS\\system32', 'C:\\WINDOWS', 'C:\\WINDOWS\\System32\\Wbem', 'C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\', 'C:\\WINDOWS\\System32\\OpenSSH\\', 'C:\\Program Files\\Common Files\\Autodesk Shared\\', 'D:\\PLAYS\\Microsoft VS Code\\bin', 'C:\\Program Files\\dotnet\\', 'C:\\Program Files\\Git\\cmd', 'C:\\Program Files\\Docker\\Docker\\resources\\bin', 'C:\\Program Files\\Microsoft\\Web Platform Installer\\', 'C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\', 'C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\', 'C:\\Program Files (x86)\\Windows Kits\\8.0\\Windows Performance Toolkit\\', 'C:\\Program Files\\Filestar', 'C:\\ProgramData\\Filestar\\aliases', 'C:\\Program Files\\nodejs\\', 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Python\\Python312\\Scripts\\', 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Python\\Python312\\', 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\', 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Python\\Python313\\', 'C:\\Users\\amirm\\AppData\\Local\\Microsoft\\WindowsApps', 'C:\\Users\\amirm\\AppData\\Local\\GitHubDesktop\\bin', 'C:\\Users\\amirm\\.lmstudio\\bin', 'C:\\Program Files (x86)\\FreeArc\\bin', 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Windsurf\\bin', 'C:\\Users\\amirm\\AppData\\Roaming\\npm']
+681 WARNING: lib not found: api-ms-win-crt-stdio-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\VCRUNTIME140.dll
+682 WARNING: lib not found: api-ms-win-crt-string-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\VCRUNTIME140.dll
+685 WARNING: lib not found: api-ms-win-crt-convert-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\VCRUNTIME140.dll
+686 WARNING: lib not found: api-ms-win-crt-heap-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\VCRUNTIME140.dll
+687 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\VCRUNTIME140.dll
+700 WARNING: lib not found: api-ms-win-crt-math-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+702 WARNING: lib not found: api-ms-win-crt-environment-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+703 WARNING: lib not found: api-ms-win-crt-convert-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+704 WARNING: lib not found: api-ms-win-crt-time-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+706 WARNING: lib not found: api-ms-win-crt-locale-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+708 WARNING: lib not found: api-ms-win-crt-string-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+709 WARNING: lib not found: api-ms-win-core-path-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+711 WARNING: lib not found: api-ms-win-crt-heap-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+712 WARNING: lib not found: api-ms-win-crt-filesystem-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+715 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+716 WARNING: lib not found: api-ms-win-crt-stdio-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+718 WARNING: lib not found: api-ms-win-crt-process-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+719 WARNING: lib not found: api-ms-win-crt-conio-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+724 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\select.pyd
+727 WARNING: lib not found: api-ms-win-crt-heap-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_lzma.pyd
+729 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_lzma.pyd
+732 WARNING: lib not found: api-ms-win-crt-stdio-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_bz2.pyd
+734 WARNING: lib not found: api-ms-win-crt-heap-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_bz2.pyd
+735 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_bz2.pyd
+738 WARNING: lib not found: api-ms-win-crt-stdio-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\pyexpat.pyd
+740 WARNING: lib not found: api-ms-win-crt-environment-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\pyexpat.pyd
+742 WARNING: lib not found: api-ms-win-crt-convert-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\pyexpat.pyd
+743 WARNING: lib not found: api-ms-win-crt-heap-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\pyexpat.pyd
+744 WARNING: lib not found: api-ms-win-crt-utility-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\pyexpat.pyd
+746 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\pyexpat.pyd
+748 WARNING: lib not found: api-ms-win-crt-stdio-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_ssl.pyd
+750 WARNING: lib not found: api-ms-win-crt-string-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_ssl.pyd
+752 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_ssl.pyd
+756 WARNING: lib not found: api-ms-win-crt-locale-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_decimal.pyd
+758 WARNING: lib not found: api-ms-win-crt-math-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_decimal.pyd
+760 WARNING: lib not found: api-ms-win-crt-stdio-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_decimal.pyd
+761 WARNING: lib not found: api-ms-win-crt-string-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_decimal.pyd
+763 WARNING: lib not found: api-ms-win-crt-convert-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_decimal.pyd
+764 WARNING: lib not found: api-ms-win-crt-heap-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_decimal.pyd
+766 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_decimal.pyd
+769 WARNING: lib not found: api-ms-win-crt-string-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_hashlib.pyd
+771 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_hashlib.pyd
+775 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_multiprocessing.pyd
+784 WARNING: lib not found: api-ms-win-crt-stdio-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_socket.pyd
+786 WARNING: lib not found: api-ms-win-crt-string-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_socket.pyd
+789 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_socket.pyd
+794 WARNING: lib not found: api-ms-win-crt-stdio-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_ctypes.pyd
+796 WARNING: lib not found: api-ms-win-crt-string-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_ctypes.pyd
+798 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_ctypes.pyd
+800 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_queue.pyd
+804 WARNING: lib not found: api-ms-win-crt-stdio-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\unicodedata.pyd
+805 WARNING: lib not found: api-ms-win-crt-string-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\unicodedata.pyd
+807 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\unicodedata.pyd
+811 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_uuid.pyd
+814 WARNING: lib not found: api-ms-win-crt-string-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_wmi.pyd
+817 WARNING: lib not found: api-ms-win-crt-heap-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_wmi.pyd
+818 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_wmi.pyd
+821 WARNING: lib not found: api-ms-win-crt-string-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_overlapped.pyd
+823 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_overlapped.pyd
+826 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\_asyncio.pyd
+830 WARNING: lib not found: api-ms-win-crt-stdio-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\zstandard\_cffi.cp312-win_amd64.pyd
+833 WARNING: lib not found: api-ms-win-crt-heap-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\zstandard\_cffi.cp312-win_amd64.pyd
+834 WARNING: lib not found: api-ms-win-crt-utility-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\zstandard\_cffi.cp312-win_amd64.pyd
+835 WARNING: lib not found: api-ms-win-crt-time-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\zstandard\_cffi.cp312-win_amd64.pyd
+836 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\zstandard\_cffi.cp312-win_amd64.pyd
+840 WARNING: lib not found: api-ms-win-crt-stdio-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\zstandard\backend_c.cp312-win_amd64.pyd
+842 WARNING: lib not found: api-ms-win-crt-heap-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\zstandard\backend_c.cp312-win_amd64.pyd
+843 WARNING: lib not found: api-ms-win-crt-time-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\zstandard\backend_c.cp312-win_amd64.pyd
+844 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\zstandard\backend_c.cp312-win_amd64.pyd
+847 WARNING: lib not found: api-ms-win-crt-stdio-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\_cffi_backend.cp312-win_amd64.pyd
+849 WARNING: lib not found: api-ms-win-crt-math-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\_cffi_backend.cp312-win_amd64.pyd
+850 WARNING: lib not found: api-ms-win-crt-string-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\_cffi_backend.cp312-win_amd64.pyd
+853 WARNING: lib not found: api-ms-win-crt-convert-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\_cffi_backend.cp312-win_amd64.pyd
+854 WARNING: lib not found: api-ms-win-crt-heap-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\_cffi_backend.cp312-win_amd64.pyd
+855 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\_cffi_backend.cp312-win_amd64.pyd
+864 WARNING: lib not found: api-ms-win-crt-environment-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\cryptography\hazmat\bindings\_rust.pyd
+865 WARNING: lib not found: api-ms-win-crt-convert-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\cryptography\hazmat\bindings\_rust.pyd
+866 WARNING: lib not found: api-ms-win-crt-time-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\cryptography\hazmat\bindings\_rust.pyd
+868 WARNING: lib not found: api-ms-win-crt-string-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\cryptography\hazmat\bindings\_rust.pyd
+872 WARNING: lib not found: api-ms-win-crt-utility-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\cryptography\hazmat\bindings\_rust.pyd
+874 WARNING: lib not found: api-ms-win-crt-heap-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\cryptography\hazmat\bindings\_rust.pyd
+875 WARNING: lib not found: api-ms-win-crt-filesystem-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\cryptography\hazmat\bindings\_rust.pyd
+878 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\cryptography\hazmat\bindings\_rust.pyd
+880 WARNING: lib not found: api-ms-win-core-synch-l1-2-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\cryptography\hazmat\bindings\_rust.pyd
+881 WARNING: lib not found: api-ms-win-crt-stdio-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\cryptography\hazmat\bindings\_rust.pyd
+884 WARNING: lib not found: api-ms-win-crt-string-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\bcrypt\_bcrypt.pyd
+886 WARNING: lib not found: api-ms-win-crt-heap-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\bcrypt\_bcrypt.pyd
+888 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\bcrypt\_bcrypt.pyd
+892 WARNING: lib not found: api-ms-win-crt-stdio-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\charset_normalizer\md__mypyc.cp312-win_amd64.pyd
+893 WARNING: lib not found: api-ms-win-crt-string-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\charset_normalizer\md__mypyc.cp312-win_amd64.pyd
+895 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\charset_normalizer\md__mypyc.cp312-win_amd64.pyd
+899 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\charset_normalizer\md.cp312-win_amd64.pyd
+913 WARNING: lib not found: api-ms-win-crt-stdio-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\libcrypto-3.dll
+914 WARNING: lib not found: api-ms-win-crt-string-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\libcrypto-3.dll
+916 WARNING: lib not found: api-ms-win-crt-environment-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\libcrypto-3.dll
+918 WARNING: lib not found: api-ms-win-crt-convert-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\libcrypto-3.dll
+919 WARNING: lib not found: api-ms-win-crt-utility-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\libcrypto-3.dll
+921 WARNING: lib not found: api-ms-win-crt-heap-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\libcrypto-3.dll
+922 WARNING: lib not found: api-ms-win-crt-time-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\libcrypto-3.dll
+923 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\libcrypto-3.dll
+925 WARNING: lib not found: api-ms-win-crt-filesystem-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\libcrypto-3.dll
+930 WARNING: lib not found: api-ms-win-crt-stdio-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\libssl-3.dll
+931 WARNING: lib not found: api-ms-win-crt-string-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\libssl-3.dll
+932 WARNING: lib not found: api-ms-win-crt-convert-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\libssl-3.dll
+934 WARNING: lib not found: api-ms-win-crt-utility-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\libssl-3.dll
+935 WARNING: lib not found: api-ms-win-crt-time-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\libssl-3.dll
+936 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\libssl-3.dll
+937 WARNING: lib not found: api-ms-win-crt-filesystem-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\libssl-3.dll
+939 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\DLLs\libffi-8.dll
+942 WARNING: lib not found: api-ms-win-crt-string-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\VCRUNTIME140_1.dll
+944 WARNING: lib not found: api-ms-win-crt-heap-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\VCRUNTIME140_1.dll
+945 WARNING: lib not found: api-ms-win-crt-runtime-l1-1-0.dll dependency of C:\Users\amirm\AppData\Local\Programs\Python\Python312\VCRUNTIME140_1.dll
+9964 INFO: Looking for eggs
+9965 INFO: Using Python library C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+9965 INFO: Found binding redirects: 
+[]
+9968 INFO: Warnings written to C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\build\WindowsRuntimeUpdate\warn-WindowsRuntimeUpdate.txt
+9992 INFO: Graph cross-reference written to C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\build\WindowsRuntimeUpdate\xref-WindowsRuntimeUpdate.html
+10011 INFO: checking PYZ
+10011 INFO: Building PYZ because PYZ-00.toc is non existent
+10011 INFO: Building PYZ (ZlibArchive) C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\build\WindowsRuntimeUpdate\PYZ-00.pyz
+10490 INFO: Building PYZ (ZlibArchive) C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\build\WindowsRuntimeUpdate\PYZ-00.pyz completed successfully.
+10496 INFO: checking PKG
+10496 INFO: Building PKG because PKG-00.toc is non existent
+10496 INFO: Building PKG (CArchive) WindowsRuntimeUpdate.pkg
+13494 INFO: Building PKG (CArchive) WindowsRuntimeUpdate.pkg completed successfully.
+13495 INFO: Bootloader C:\Users\amirm\AppData\Local\Programs\Python\Python312\Lib\site-packages\PyInstaller\bootloader\Windows-64bit-intel\runw.exe
+13495 INFO: checking EXE
+13495 INFO: Building EXE because EXE-00.toc is non existent
+13495 INFO: Building EXE from EXE-00.toc
+13495 INFO: Copying bootloader EXE to C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\APP\WindowsRuntimeUpdate.exe.notanexecutable
+13499 INFO: Copying icon to EXE
+13499 INFO: Copying icons from ['C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\icon.ico']
+13499 INFO: Writing RT_GROUP_ICON 0 resource with 20 bytes
+13500 INFO: Writing RT_ICON 1 resource with 2087 bytes
+13502 INFO: Copying 0 resources to EXE
+13502 INFO: Embedding manifest in EXE
+13502 INFO: Updating manifest in C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\APP\WindowsRuntimeUpdate.exe.notanexecutable
+13503 INFO: Updating resource type 24 name 1 language 0
+13504 INFO: Appending PKG archive to EXE
+13513 INFO: Fixing EXE headers
+13583 INFO: Building EXE from EXE-00.toc completed successfully.
+
+Created zip file: C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\APP\WindowsRuntimeUpdate.zip
+Removed temporary file: C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\APP\client.py
+Removed temporary file: C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\APP\WindowsRuntimeUpdate.exe
+Cleaned up build directory
+Watching for file changes with StatReloader
+Running PyInstaller with command: pyinstaller --onefile --noconsole --distpath C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\APP --specpath C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\APP --name WindowsRuntimeUpdate --icon=C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\icon.ico C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\APP\client.py
+PyInstaller output: 
+PyInstaller stderr: 107 INFO: PyInstaller: 6.14.1, contrib hooks: 2025.5
+107 INFO: Python: 3.12.3
+129 INFO: Platform: Windows-11-10.0.26100-SP0
+129 INFO: Python environment: C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\venv
+129 INFO: wrote C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\APP\WindowsRuntimeUpdate.spec
+132 INFO: Module search paths (PYTHONPATH):
+['C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Scripts\\pyinstaller.exe',
+ 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Python\\Python312\\python312.zip',
+ 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Python\\Python312\\DLLs',
+ 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Python\\Python312\\Lib',
+ 'C:\\Users\\amirm\\AppData\\Local\\Programs\\Python\\Python312',
+ 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv',
+ 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages',
+ 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\setuptools\\_vendor',
+ 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\APP']
+397 INFO: checking Analysis
+397 INFO: Building Analysis because Analysis-00.toc is non existent
+397 INFO: Running Analysis Analysis-00.toc
+397 INFO: Target bytecode optimization level: 0
+397 INFO: Initializing module dependency graph...
+398 INFO: Initializing module graph hook caches...
+408 INFO: Analyzing modules for base_library.zip ...
+1403 INFO: Processing standard module hook 'hook-encodings.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+2517 INFO: Processing standard module hook 'hook-pickle.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+3305 INFO: Processing standard module hook 'hook-heapq.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+3573 INFO: Caching module dependency graph...
+3603 INFO: Looking for Python shared library...
+3611 INFO: Using Python shared library: C:\Users\amirm\AppData\Local\Programs\Python\Python312\python312.dll
+3611 INFO: Analyzing C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\APP\client.py
+3627 INFO: Processing standard module hook 'hook-urllib3.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+3768 INFO: Processing pre-safe-import-module hook 'hook-typing_extensions.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+3769 INFO: SetuptoolsInfo: initializing cached setuptools info...
+6393 INFO: Setuptools: 'typing_extensions' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.typing_extensions'!
+6401 INFO: Processing standard module hook 'hook-setuptools.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+6430 INFO: Processing standard module hook 'hook-platform.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+6430 INFO: Processing pre-safe-import-module hook 'hook-distutils.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+6460 INFO: Processing standard module hook 'hook-sysconfig.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+6460 INFO: Processing pre-safe-import-module hook 'hook-jaraco.functools.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+6460 INFO: Setuptools: 'jaraco.functools' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.jaraco.functools'!
+6481 INFO: Processing pre-safe-import-module hook 'hook-more_itertools.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+6481 INFO: Setuptools: 'more_itertools' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.more_itertools'!
+6651 INFO: Processing pre-safe-import-module hook 'hook-packaging.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+6755 INFO: Processing pre-safe-import-module hook 'hook-jaraco.text.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+6760 INFO: Setuptools: 'jaraco.text' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.jaraco.text'!
+6762 INFO: Processing standard module hook 'hook-setuptools._vendor.jaraco.text.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+6762 INFO: Processing pre-safe-import-module hook 'hook-importlib_resources.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+6762 INFO: Processing pre-safe-import-module hook 'hook-jaraco.context.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+6762 INFO: Setuptools: 'jaraco.context' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.jaraco.context'!
+6895 INFO: Processing pre-safe-import-module hook 'hook-backports.tarfile.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+6900 INFO: Setuptools: 'backports.tarfile' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.backports.tarfile'!
+6951 INFO: Processing standard module hook 'hook-backports.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+7010 INFO: Processing pre-safe-import-module hook 'hook-importlib_metadata.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+7010 INFO: Setuptools: 'importlib_metadata' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.importlib_metadata'!
+7029 INFO: Processing standard module hook 'hook-setuptools._vendor.importlib_metadata.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+7030 INFO: Processing pre-safe-import-module hook 'hook-zipp.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+7030 INFO: Setuptools: 'zipp' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.zipp'!
+7195 INFO: Processing pre-safe-import-module hook 'hook-tomli.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+7195 INFO: Setuptools: 'tomli' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.tomli'!
+7484 INFO: Processing pre-safe-import-module hook 'hook-wheel.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+7484 INFO: Setuptools: 'wheel' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.wheel'!
+7961 INFO: Processing standard module hook 'hook-charset_normalizer.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+8067 INFO: Processing standard module hook 'hook-certifi.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+8155 INFO: Processing module hooks (post-graph stage)...
+8441 INFO: Processing standard module hook 'hook-multiprocessing.util.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+8493 INFO: Processing standard module hook 'hook-xml.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+8752 INFO: Processing standard module hook 'hook-difflib.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+9207 INFO: Performing binary vs. data reclassification (11 entries)
+9208 INFO: Looking for ctypes DLLs
+9217 INFO: Analyzing run-time hooks ...
+9220 INFO: Including run-time hook 'pyi_rth_inspect.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+9221 INFO: Including run-time hook 'pyi_rth_setuptools.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+9222 INFO: Including run-time hook 'pyi_rth_pkgutil.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+9224 INFO: Including run-time hook 'pyi_rth_multiprocessing.py' from 'C:\\Users\\amirm\\OneDrive\\Desktop\\H_WEB_HACK\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+9229 INFO: Creating base_library.zip...
+9272 INFO: Looking for dynamic libraries
+9706 INFO: Extra DLL search directories (AddDllDirectory): []
+9706 INFO: Extra DLL search directories (PATH): []
+9860 INFO: Warnings written to C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\build\WindowsRuntimeUpdate\warn-WindowsRuntimeUpdate.txt
+9895 INFO: Graph cross-reference written to C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\build\WindowsRuntimeUpdate\xref-WindowsRuntimeUpdate.html
+9916 INFO: checking PYZ
+9916 INFO: Building PYZ because PYZ-00.toc is non existent
+9916 INFO: Building PYZ (ZlibArchive) C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\build\WindowsRuntimeUpdate\PYZ-00.pyz
+10466 INFO: Building PYZ (ZlibArchive) C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\build\WindowsRuntimeUpdate\PYZ-00.pyz completed successfully.
+10475 INFO: checking PKG
+10480 INFO: Building PKG because PKG-00.toc is non existent
+10480 INFO: Building PKG (CArchive) WindowsRuntimeUpdate.pkg
+12239 INFO: Building PKG (CArchive) WindowsRuntimeUpdate.pkg completed successfully.
+12241 INFO: Bootloader C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\venv\Lib\site-packages\PyInstaller\bootloader\Windows-64bit-intel\runw.exe
+12241 INFO: checking EXE
+12241 INFO: Building EXE because EXE-00.toc is non existent
+12241 INFO: Building EXE from EXE-00.toc
+12241 INFO: Copying bootloader EXE to C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\APP\WindowsRuntimeUpdate.exe
+12245 INFO: Copying icon to EXE
+12249 INFO: Copying 0 resources to EXE
+12249 INFO: Embedding manifest in EXE
+12251 INFO: Appending PKG archive to EXE
+12258 INFO: Fixing EXE headers
+12311 INFO: Building EXE from EXE-00.toc completed successfully.
+12312 INFO: Build complete! The results are available in: C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\APP
+
+Created zip file: C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\APP\WindowsRuntimeUpdate.zip
+Removed temporary file: C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\APP\client.py
+Removed temporary file: C:\Users\amirm\OneDrive\Desktop\H_WEB_HACK\APP\WindowsRuntimeUpdate.exe
+Cleaned up build directory
+Not Found: /favicon.ico
+Client amirm registered
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Not Found: /favicon.ico
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Not Found: /favicon.ico
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Watching for file changes with StatReloader
+Client amirm updated
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Not Found: /favicon.ico
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Client amirm updated
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Not Found: /favicon.ico
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+WindowsRuntimeUpdate.zip downloaded successfully
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+WindowsRuntimeUpdate.zip downloaded successfully
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm
+Poll request from amirm

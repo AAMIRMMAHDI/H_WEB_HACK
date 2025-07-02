@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>مدیریت کلاینت‌ها</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://v1.fontapi.ir/css/Vazir">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <style>
+        * {
+            font-family: 'Vazir', sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: #0d1b2a;
+            color: #e0e0e0;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #0d1b2a, #1b263b);
+            min-height: 100vh;
+            width: 100%;
+            padding: 0.5rem;
+            flex: 1;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        .glass-button {
+            background: linear-gradient(135deg, rgba(64, 196, 255, 0.3), rgba(123, 44, 191, 0.3));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(64, 196, 255, 0.5);
+            color: #e0e0e0;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .glass-button:hover {
+            background: linear-gradient(135deg, rgba(64, 196, 255, 0.5), rgba(123, 44, 191, 0.5));
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .client-card {
+            position: relative;
+            padding: 1rem;
+            margin: 0.5rem;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeSlideIn 0.3s ease forwards;
+        }
+        @keyframes fadeSlideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .client-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .status-online {
+            background: rgba(40, 167, 69, 0.2) !important;
+            border-left: 3px solid #28a745 !important;
+        }
+        .status-offline {
+            background: rgba(220, 53, 69, 0.2) !important;
+            border-left: 3px solid #dc3545 !important;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 70%;
+            max-width: 250px;
+            height: 100%;
+            background: rgba(27, 38, 59, 0.95);
+            backdrop-filter: blur(12px);
+            border-left: 1px solid rgba(255, 255, 255, 0.15);
+            transition: right 0.3s ease;
+            z-index: 1002;
+            padding: 1rem;
+        }
+        .sidebar.open {
+            right: 0;
+        }
+        .sidebar-item {
+            padding: 0.6rem 1rem;
+            color: #e0e0e0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .sidebar-item:hover {
+            background: rgba(64, 196, 255, 0.3);
+            border-radius: 8px;
+        }
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(27, 38, 59, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            z-index: 1001;
+        }
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 10;
+        }
+        .navbar-center {
+            display: flex !important;
+            align-items: center;
+            gap: 0.5rem;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(27, 38, 59, 0.95);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 0.5rem 1rem;
+            z-index: 1001;
+        }
+        .progress-bar {
+            background: rgba(64, 196, 255, 0.2);
+            height: 0.4rem;
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+        .progress-bar div {
+            background: linear-gradient(90deg, #40c4ff, #7b2cbf);
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+        .modal-content {
+            background: rgba(27, 38, 59, 0.95);
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
+            padding: 1rem;
+            width: 85%;
+            max-width: 280px;
+            max-height: 80vh;
+            overflow-y: auto;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1003;
+        }
+        .modal-content.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .message {
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .message.success {
+            background: rgba(40, 167, 69, 0.2);
+            border: 1px solid rgba(40, 167, 69, 0.5);
+            color: #d4edda;
+        }
+        .message.error {
+            background: rgba(220, 53, 69, 0.2);
+            border: 1px solid rgba(220, 53, 69, 0.5);
+            color: #f8d7da;
+        }
+        .stats-card {
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            flex: 1;
+            margin: 0.3rem;
+            min-width: 120px;
+        }
+        .stats-card h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+        .stats-card p {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        @media (min-width: 641px) {
+            .navbar {
+                position: relative;
+                justify-content: space-between;
+                padding: 0.5rem 2rem;
+            }
+            .navbar-left {
+                display: flex !important;
+                gap: 0.5rem;
+                visibility: visible !important;
+                max-width: 200px;
+                padding-left: 0.5rem;
+                margin-right: 2rem;
+                z-index: 10;
+            }
+            .navbar-left .header-actions {
+                display: flex !important;
+                gap: 0.5rem;
+                visibility: visible !important;
+            }
+            .navbar-center {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex !important;
+                visibility: visible !important;
+            }
+            .client-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            .sidebar {
+                display: none;
+            }
+            .navbar {
+                flex-wrap: nowrap;
+            }
+        }
+        @media (max-width: 640px) {
+            .client-grid {
+                grid-template-columns: 1fr;
+            }
+            .client-card p {
+                font-size: 0.85rem;
+            }
+            .client-card {
+                padding: 0.8rem;
+                margin: 0.3rem;
+            }
+            .modal-content {
+                width: 90%;
+                max-width: 260px;
+                padding: 0.8rem;
+            }
+            .glass-button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+            .navbar-left .header-actions {
+                display: none !important;
+            }
+            .stats {
+                flex-direction: column;
+            }
+            .stats-card {
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="gradient-bg">
+    <div class="navbar glass-effect">
+        <div class="navbar-left">
+            <h1 class="text-base font-bold text-white">مدیریت کلاینت‌ها</h1>
+            <button id="sidebar-toggle" class="glass-button md:hidden"><i class="bi bi-list"></i></button>
+            <div class="header-actions md:flex">
+                <button onclick="window.location.href='/generate-exe/'" class="glass-button"><i class="bi bi-file-earmark-binary"></i> ساخت EXE</button>
+                <button onclick="window.location.href='/download-device/'" class="glass-button"><i class="bi bi-download"></i> دانلود EXE</button>
+                <a href="{% url 'logout' %}" class="glass-button bg-red-600 hover:bg-red-700"><i class="bi bi-box-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-item" onclick="window.location.href='/generate-exe/'">
+            <i class="bi bi-file-earmark-binary"></i> ساخت EXE
+        </div>
+        <div class="sidebar-item" onclick="window.location.href='/download-device/'">
+            <i class="bi bi-download"></i> دانلود EXE
+        </div>
+        <div class="sidebar-item">
+            <a href="{% url 'logout' %}" class="flex items-center gap-2"><i class="bi bi-box-arrow-right"></i> خروج</a>
+        </div>
+    </div>
+    
+    <div class="container mx-auto p-3 mt-2">
+        {% if message %}
+            <div class="message {% if 'success' in message|lower %}success{% else %}error{% endif %}">
+                {{ message }}
+            </div>
+        {% endif %}
+        
+        <div class="stats flex flex-wrap justify-center mb-4">
+            <div class="stats-card glass-effect status-online">
+                <h3>{{ online_count }}</h3>
+                <p>کلاینت‌های آنلاین</p>
+            </div>
+            <div class="stats-card glass-effect status-offline">
+                <h3>{{ offline_count }}</h3>
+                <p>کلاینت‌های آفلاین</p>
+            </div>
+        </div>
+        
+        <div class="client-grid grid gap-3">
+            {% for client in clients %}
+                <div class="client-card glass-effect {% if client.last_seen|timesince <= "30 seconds" %}status-online{% else %}status-offline{% endif %}">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="font-bold text-white">{{ client.client_id }}</h3>
+                            <p class="text-sm text-gray-300">آخرین بازدید: {{ client.last_seen|date:"Y/m/d H:i:s" }}</p>
+                            <!-- Debug line: Remove after testing -->
+                            <p class="text-xs text-gray-400">Debug: last_seen = {{ client.last_seen|timesince }}</p>
+                        </div>
+                        <span class="text-xs px-2 py-1 rounded-full {% if client.last_seen|timesince <= "30 seconds" %}bg-green-600{% else %}bg-red-600{% endif %}">
+                            {% if client.last_seen|timesince <= "30 seconds" %}آنلاین{% else %}آفلاین{% endif %}
+                        </span>
+                    </div>
+                    
+                    <p class="text-sm mb-3">
+                        <span class="text-gray-400">آخرین دستور:</span>
+                        <span class="text-white">{{ client.last_command|default:"-" }}</span>
+                    </p>
+                    
+                    <div class="flex justify-end gap-2">
+                        <a href="{% url 'cmd_page' client.client_id %}" class="glass-button text-sm">
+                            <i class="bi bi-terminal"></i> ارسال دستور
+                        </a>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="text-center text-gray-300 p-4 glass-effect rounded-lg col-span-full">
+                    <i class="bi bi-pc-display-horizontal text-xl mb-2"></i>
+                    <p class="text-sm">هیچ کلاینتی یافت نشد!</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <footer class="footer glass-effect">
+        <p class="text-gray-300 text-sm">سیستم مدیریت کلاینت‌ها - نسخه 1.0.0</p>
+    </footer>
+    
+    <script>
+        gsap.from(".navbar, .footer", { 
+            duration: 0.6, 
+            y: 20, 
+            opacity: 0, 
+            stagger: 0.05, 
+            ease: "power2.out" 
+        });
+        
+        gsap.from(".stats-card", {
+            duration: 0.7,
+            y: 20,
+            opacity: 0,
+            stagger: 0.1,
+            delay: 0.2,
+            ease: "back.out(1.7)"
+        });
+
+        gsap.from(".client-card", {
+            duration: 0.7,
+            y: 20,
+            opacity: 0,
+            stagger: 0.1,
+            delay: 0.4,
+            ease: "power2.out"
+        });
+        
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!sidebarToggle.contains(e.target) && !sidebar.contains(e.target)) {
+                sidebar.classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>
