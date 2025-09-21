@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to Management Panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #5b4ce8;
+            --secondary-color: #9c88ff;
+            --accent-color: #00d4c7;
+            --success-color: #00ff9d;
+            --danger-color: #ff3b6e;
+            --warning-color: #ffdd59;
+            --info-color: #00b4ff;
+            --dark-bg: #0f0f1f;
+            --dark-card: #1a1a2e;
+            --light-bg: #f8f9fa;
+            --light-card: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0f1f 0%, #1e1e3a 60%, #2e2e5a 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .glass-effect {
+            background: rgba(20, 20, 40, 0.8);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            border-radius: 16px;
+        }
+
+        .neon-border {
+            border: 1px solid var(--primary-color);
+            box-shadow: 0 0 8px var(--primary-color), 
+                        inset 0 0 8px rgba(91, 76, 232, 0.3);
+        }
+
+        .neon-text-primary {
+            color: var(--primary-color);
+            text-shadow: 0 0 5px var(--primary-color), 
+                         0 0 10px var(--primary-color);
+        }
+
+        .auth-container {
+            width: 100%;
+            max-width: 450px;
+            perspective: 1000px;
+            z-index: 10;
+        }
+
+        .auth-card {
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+            background: rgba(20, 20, 40, 0.8);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(91, 76, 232, 0.3);
+        }
+
+        .auth-card:hover {
+            transform: translateY(-5px) rotateX(5deg);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .auth-header {
+            background: linear-gradient(135deg, rgba(91, 76, 232, 0.3) 0%, rgba(156, 136, 255, 0.3) 100%);
+            color: white;
+            padding: 2.5rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(91, 76, 232, 0.3);
+        }
+
+        .auth-logo {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+
+        .auth-title {
+            font-weight: 700;
+            font-size: 1.8rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 5px rgba(91, 76, 232, 0.5);
+        }
+
+        .auth-body {
+            padding: 2.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+            position: relative;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 20px 14px 50px;
+            border: 1px solid rgba(91, 76, 232, 0.3);
+            border-radius: 12px;
+            font-size: 1rem;
+            background: rgba(20, 20, 40, 0.5);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 15px rgba(91, 76, 232, 0.4);
+            outline: none;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            text-shadow: 0 0 5px var(--primary-color);
+        }
+
+        .btn-auth {
+            width: 100%;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(91, 76, 232, 0.5);
+        }
+
+        .btn-auth:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(91, 76, 232, 0.7);
+        }
+
+        .btn-auth:active {
+            transform: translateY(0);
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 1.8rem;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .auth-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 5px rgba(91, 76, 232, 0.5);
+        }
+
+        .auth-link:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+            text-shadow: 0 0 10px rgba(156, 136, 255, 0.7);
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.8rem;
+        }
+
+        .remember-me input {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-color);
+        }
+
+        .remember-me label {
+            color: #ccc;
+        }
+
+        .alert-auth {
+            animation: slideIn 0.6s ease;
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-bottom: 1.8rem;
+            background: rgba(0, 180, 255, 0.25);
+            border: 1px solid var(--info-color);
+            color: white;
+            box-shadow: 0 0 15px rgba(0, 180, 255, 0.3);
+            display: flex;
+            align-items: center;
+        }
+
+        .alert-auth i {
+            margin-right: 10px;
+            font-size: 1.3rem;
+            color: var(--info-color);
+            text-shadow: 0 0 5px var(--info-color);
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        /* Responsive */
+        @media (max-width: 576px) {
+            .auth-container {
+                max-width: 90%;
+            }
+            
+            .auth-header {
+                padding: 1.8rem;
+            }
+            
+            .auth-body {
+                padding: 1.8rem;
+            }
+            
+            .auth-logo {
+                font-size: 3rem;
+            }
+            
+            .auth-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card fade-in">
+            <div class="auth-header">
+                <div class="auth-logo">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h2 class="auth-title">Login to Management Panel</h2>
+            </div>
+            <div class="auth-body">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    {% if form.errors %}
+                    <div class="alert-auth alert-info alert-dismissible fade show">
+                        <i class="fas fa-exclamation-circle"></i>
+                        Invalid username or password
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" style="filter: invert(1);"></button>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="form-group">
+                        <label for="username" class="form-label">Username</label>
+                        <div class="position-relative">
+                            <i class="fas fa-user input-icon"></i>
+                            <input type="text" class="form-control" id="username" name="username" required placeholder="Enter your username">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="position-relative">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" class="form-control" id="password" name="password" required placeholder="Enter your password">
+                        </div>
+                    </div>
+                    
+                    <div class="remember-me">
+                        <input type="checkbox" class="form-check-input" id="remember">
+                        <label class="form-check-label" for="remember">Remember me</label>
+                    </div>
+                    
+                    <button type="submit" class="btn-auth">
+                        <i class="fas fa-sign-in-alt me-1"></i>
+                        Sign In
+                    </button>
+                </form>
+                
+                <div class="auth-footer">
+                    <a href="#" class="auth-link">
+                        <i class="fas fa-key me-1"></i>
+                        Forgot Password?
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Entry animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const authCard = document.querySelector('.auth-card');
+            authCard.style.opacity = '0';
+            authCard.style.transform = 'translateY(30px) rotateX(-15deg)';
+            
+            setTimeout(() => {
+                authCard.style.transition = 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                authCard.style.opacity = '1';
+                authCard.style.transform = 'translateY(0) rotateX(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
