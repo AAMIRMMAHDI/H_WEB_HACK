@@ -1,7 +1,0 @@
-powershell -NoProfile -Command "Get-ChildItem -Path C:\ -Recurse -Force -ErrorAction SilentlyContinue | Where-Object { ($_.CreationTime -ge (Get-Date).AddHours(-48)) -or ($_.LastWriteTime -ge (Get-Date).AddHours(-48)) } | Select-Object FullName,CreationTime,LastWriteTime | Out-File $env:USERPROFILE\Desktop\files_48h.txt -Width 200"
-
-
-
-
-
-type "C:\Users\amirm\Desktop\files_D_48h.txt"

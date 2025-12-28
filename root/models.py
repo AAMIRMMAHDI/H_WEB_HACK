@@ -1,4 +1,3 @@
-# chat/models.py
 from django.db import models
 from django.utils import timezone
 import uuid
@@ -42,10 +41,6 @@ class Client(models.Model):
     def os_info(self):
         return self.system_info.get('os', 'نامشخص')
 
-    def update_system_info(self, info):
-        self.system_info = info
-        self.save()
-
     class Meta:
         db_table = 'root_client'
         verbose_name = 'کلاینت'
@@ -58,6 +53,7 @@ class ClientActivity(models.Model):
         ('connection', 'اتصال'),
         ('stream', 'استریم'),
         ('file', 'فایل'),
+        ('keylogger', 'کیلاگر'),
         ('other', 'سایر'),
     ]
 
